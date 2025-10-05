@@ -1,0 +1,121 @@
+.navbar {
+  width: 100%;
+  background: linear-gradient(135deg, #0a0e2a 0%, #1a1f4b 100%);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: none; /* إزالة حدود البنك */
+  box-shadow: none; /* إزالة الظل */
+}
+
+.navbar-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  animation: float 4s ease-in-out infinite;
+}
+
+.logo-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-family: 'Nasalization', 'Arial', sans-serif;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.logo-subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(245, 245, 240, 0.7);
+  margin: 2px 0 0 0;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.links-section {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  color: #4cc9f0;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #f72585;
+  bottom: -4px;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #f72585;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .links-section {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .logo-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-title {
+    font-size: 1.3rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}

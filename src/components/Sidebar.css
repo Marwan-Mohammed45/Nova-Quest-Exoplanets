@@ -1,0 +1,133 @@
+:root {
+  --primary: #4cc9f0;
+  --primary-dark: #1a1f4b;
+  --accent: #f72585;
+  --secondary: rgba(76,201,240,0.1);
+  --text-light: rgba(245,245,240,0.9);
+  --dark: #ffffff;
+  --border: rgba(255,255,255,0.1);
+}
+
+.sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #0a0e2a 0%, #1a1f4b 100%);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.sidebar.closed {
+  width: 70px;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--dark);
+}
+
+.logo-icon {
+  font-size: 1.7rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-light);
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.nav-item:hover {
+  background: var(--secondary);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.nav-item.active {
+  background: var(--primary);
+  color: white;
+  border-right: 4px solid var(--primary-dark);
+  box-shadow: 0 0 15px rgba(76,201,240,0.3);
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+  min-width: 24px;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 0 10px rgba(76,201,240,0.5);
+}
+
+.user-name {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.user-role {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* Animations */
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 999;
+    height: 100vh;
+    left: -250px;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+}
